@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wine.ogg-fd23f5f3df8805a99179062ba07bbdb0.oggstr"
+
+[deps]
+
+source_file="res://mods/Jous.Goats/sounds/wine.ogg"
+dest_files=[ "res://.import/wine.ogg-fd23f5f3df8805a99179062ba07bbdb0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

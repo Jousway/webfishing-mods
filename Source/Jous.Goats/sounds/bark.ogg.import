@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bark.ogg-03276eafbb4e8f43753209439d430c24.oggstr"
+
+[deps]
+
+source_file="res://mods/Jous.Goats/sounds/bark.ogg"
+dest_files=[ "res://.import/bark.ogg-03276eafbb4e8f43753209439d430c24.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
