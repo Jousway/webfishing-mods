@@ -28,3 +28,8 @@ func _ready():
 	Lure.add_content(ID,"accessory_beak_raptorial","mod://Accessories/accessory_beak_raptorial.tres")
 	Lure.add_content(ID,"accessory_beak_scynthing","mod://Accessories/accessory_beak_scything.tres")
 	Lure.add_content(ID,"accessory_beak_surface","mod://Accessories/accessory_beak_surface.tres")
+
+	#tails
+	Lure.add_content(ID,ID + ".tail_bird_common","mod://Tails/tail_bird_common.tres")
+	Lure.add_content(ID,ID + ".tail_bird_long","mod://Tails/tail_bird_long.tres")
+	Lure.add_content(ID,ID + ".tail_bird_wide","mod://Tails/tail_bird_wide.tres")
