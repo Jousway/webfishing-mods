@@ -7,8 +7,8 @@
 
 [resource]
 script = ExtResource( 3 )
-name = "Beak Generalist"
-desc = "Bird Tail Long"
+name = "Bird Tail Long"
+desc = ""
 title = ""
 icon = ExtResource( 4 )
 mesh = ExtResource( 1 )

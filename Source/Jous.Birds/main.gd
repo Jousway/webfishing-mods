@@ -13,6 +13,9 @@ func _ready():
 	Lure.assign_pattern_texture(ID, "pattern_spotted", ID + ".species_bird", "mod://textures/body_pattern_3_bird.png")
 	Lure.assign_pattern_texture(ID, "pattern_tux", ID + ".species_bird", "mod://textures/body_pattern_2_bird.png")
 
+	Lure.assign_cosmetic_mesh(ID, "accessory_glasses_round", ID + ".species_bird", "mod://models/eyewear_round.tres")
+	Lure.assign_cosmetic_mesh(ID, "accessory_glasses", ID + ".species_bird", "mod://models/eyewear_round.tres")
+
 	Lure.add_content(ID, "species_bird", "mod://species/species_bird.tres")
 
 	#beaks
@@ -30,6 +33,6 @@ func _ready():
 	Lure.add_content(ID,"accessory_beak_surface","mod://Accessories/accessory_beak_surface.tres")
 
 	#tails
-	Lure.add_content(ID,ID + ".tail_bird_common","mod://Tails/tail_bird_common.tres")
-	Lure.add_content(ID,ID + ".tail_bird_long","mod://Tails/tail_bird_long.tres")
-	Lure.add_content(ID,ID + ".tail_bird_wide","mod://Tails/tail_bird_wide.tres")
+	Lure.add_content(ID,"tail_bird_common","mod://Tails/tail_bird_common.tres")
+	Lure.add_content(ID,"tail_bird_long","mod://Tails/tail_bird_long.tres")
+	Lure.add_content(ID,"tail_bird_wide","mod://Tails/tail_bird_wide.tres")
