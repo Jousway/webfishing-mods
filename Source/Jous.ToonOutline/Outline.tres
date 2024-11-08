@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://mods/Jous.ToonOutline/outline.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+shader_param/luma_coef = 80.0
+shader_param/color_coef = 80.0
+shader_param/depth_coef = 500.0
+shader_param/cutoff = 0.05
