@@ -1,0 +1,510 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Scenes/Map/Zones/zone.gd" type="Script" id=1]
+[ext_resource path="res://mods/Jous.WF_RatsRespect/Room.tres" type="ArrayMesh" id=2]
+[ext_resource path="res://mods/Jous.WF_RatsRespect/Roof.tres" type="ArrayMesh" id=3]
+[ext_resource path="res://Scenes/Entities/Player/fish_zone.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Map/Props/mushroom_bounce.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Map/Zones/ocean_spawns.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Interactables/vending_machine.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Map/Props/extreme_water_small.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Interactables/NPCs/npc_sell.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Interactables/NPCs/npc_main.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Interactables/NPCs/npc_general.tscn" type="PackedScene" id=16]
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 10.8631, 0.661257, 10.8972 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 10.8123, 15.8014, 0.633149 )
+
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 3.49963, 0.18008, 1 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.282269, 3.6027, 0.358262 )
+
+[sub_resource type="CylinderShape" id=11]
+height = 6.95235
+radius = 2.19995
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 0.987958, 19.8502, 2.27401 )
+
+[sub_resource type="CylinderShape" id=13]
+radius = 0.399502
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 0.0705298, 0.313546, 0.975319 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 40, 10, 40 )
+
+[node name="Zone" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.94232, 0 )
+script = ExtResource( 1 )
+
+[node name="map" type="Spatial" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="map"]
+collision_layer = 257
+collision_mask = 257
+
+[node name="Room" type="MeshInstance" parent="map/StaticBody"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0 )
+mesh = ExtResource( 2 )
+skeleton = NodePath("../../..")
+
+[node name="Roof2" type="MeshInstance" parent="map/StaticBody"]
+transform = Transform( 0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0 )
+mesh = ExtResource( 3 )
+skeleton = NodePath("../../..")
+
+[node name="Floor" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 3, 0, 0, 0, 2, 0, 0, 0, 3, 0, -6.29515, 0 )
+shape = SubResource( 7 )
+
+[node name="Roof" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 3, 0, 0, 0, 2, 0, 0, 0, 3, 0.175085, 57.4208, 0.0503922 )
+shape = SubResource( 7 )
+
+[node name="Wall1" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 3, 0, 0, 0, 2, 0, 0, 0, 3, 0, 26.9668, 30.7428 )
+shape = SubResource( 9 )
+
+[node name="Wall5" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 3, 0, 0, 0, 0.613071, 0, 0, 0, 1.63209, 0, 3.85612, 28.9648 )
+shape = SubResource( 9 )
+
+[node name="Wall2" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 3, 0, 0, 0, 2, 0, 0, 0, 3, 0, 26.9668, -30.7252 )
+shape = SubResource( 9 )
+
+[node name="Wall3" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.31134e-07, 0, 3, 0, 2, 0, -3, 0, -1.31134e-07, -30.901, 26.9668, 0.162868 )
+shape = SubResource( 9 )
+
+[node name="Wall4" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.31134e-07, 0, 3, 0, 2, 0, -3, 0, -1.31134e-07, 31.0277, 26.9668, 0.162868 )
+shape = SubResource( 9 )
+
+[node name="Wall6" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.08649e-08, 0, 0.477332, 0, 0.578933, 0, -1.88759, 0, -8.2509e-08, 29.0106, 4.41481, 9.94439 )
+shape = SubResource( 9 )
+
+[node name="Bath" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 1.72399, 0, 0, 0, 0.427933, 0, 0, 0, 1.61951, 10.9486, 1.46012, -11.5461 )
+shape = SubResource( 9 )
+
+[node name="Bath2" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 1.72399, 0, 0, 0, 0.427933, 0, 0, 0, 1.61951, 10.9486, 1.46012, -28.615 )
+shape = SubResource( 9 )
+
+[node name="Bath4" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.154512, 0, 0, 0, 0.427933, 0, 0, 0, 15.1113, -6.76916, 1.46012, -20.1016 )
+shape = SubResource( 9 )
+
+[node name="Bath3" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.154512, 0, 0, 0, 0.427933, 0, 0, 0, 15.1113, 28.3888, 1.46012, -20.1016 )
+shape = SubResource( 9 )
+
+[node name="Sink" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.974924, 0, 0, 0, 0.475112, 0, 0, 0, 17.2451, -18.7056, 2.88761, -19.5037 )
+shape = SubResource( 9 )
+
+[node name="Sink2" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.10505, 0, 0, 0, 0.216067, 0, 0, 0, 17.2451, -9.33264, 13.1508, -19.5037 )
+shape = SubResource( 9 )
+
+[node name="Sink3" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.10505, 0, 0, 0, 0.216067, 0, 0, 0, 17.2451, -28.2551, 13.1508, -19.5037 )
+shape = SubResource( 9 )
+
+[node name="Sink4" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.963768, 0, 0, 0, 0.216067, 0, 0, 0, 6.07741, -18.6764, 13.1508, -26.7991 )
+shape = SubResource( 9 )
+
+[node name="Sink5" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.963768, 0, 0, 0, 0.216067, 0, 0, 0, 1.59384, -18.6764, 13.1508, -9.65151 )
+shape = SubResource( 9 )
+
+[node name="Platform" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.08649e-08, 0, 0.477332, -1.12733, 0.464343, -4.92771e-08, -1.51397, -0.345758, -6.61778e-08, 29.2334, 17.0129, 6.65721 )
+shape = SubResource( 15 )
+
+[node name="Platform2" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.08649e-08, 0, 0.477332, -1.08815, 0.473055, -4.75644e-08, -1.54237, -0.33374, -6.74193e-08, 29.2304, 9.88729, -15.8002 )
+shape = SubResource( 15 )
+
+[node name="Toilet" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 2.93313, -0.334492, 0, 0.505829, 1.97137, 0, 0, 0, 3.05538, 5.67024, 1.55167, 19.995 )
+shape = SubResource( 10 )
+
+[node name="Toilet2" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 2.74479, -0.313014, 1.04913, 0.505829, 1.97137, 0, -1.06178, 0.121085, 2.85919, 5.91789, 1.55167, 21.3813 )
+shape = SubResource( 10 )
+
+[node name="Toilet3" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 2.22677, -0.25394, 1.93685, 0.505829, 1.97137, 0, -1.96021, 0.223541, 2.31959, 6.66527, 1.55167, 22.6229 )
+shape = SubResource( 10 )
+
+[node name="Toilet4" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 1.87253, -0.213541, 2.29042, 0.505829, 1.97137, 0, -2.31806, 0.26435, 1.95057, 7.87035, 1.55167, 23.8465 )
+shape = SubResource( 10 )
+
+[node name="Toilet5" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 1.26879, -0.144692, 2.68292, 0.505829, 1.97137, 0, -2.71529, 0.309649, 1.32168, 9.19592, 1.55167, 24.7126 )
+shape = SubResource( 10 )
+
+[node name="Toilet6" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.850806, -0.0970252, 2.8478, 0.505829, 1.97137, 0, -2.88215, 0.328679, 0.886267, 10.9232, 1.55167, 25.4 )
+shape = SubResource( 10 )
+
+[node name="Toilet7" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.286478, -0.0326697, 2.96151, 0.505829, 1.97137, 0, -2.99724, 0.341803, 0.298418, 12.6505, 1.55167, 25.7162 )
+shape = SubResource( 10 )
+
+[node name="Toilet8" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.93313, 0.334492, 0, 0.505829, 1.97137, 0, 0, 0, 3.05538, 21.2485, 1.55167, 19.995 )
+shape = SubResource( 10 )
+
+[node name="Toilet9" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.74479, 0.313014, -1.04913, 0.505829, 1.97137, 0, -1.06178, 0.121085, 2.85919, 21.0008, 1.55167, 21.3813 )
+shape = SubResource( 10 )
+
+[node name="Toilet10" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.22677, 0.25394, -1.93685, 0.505829, 1.97137, 0, -1.96021, 0.223541, 2.31959, 20.2534, 1.55167, 22.6229 )
+shape = SubResource( 10 )
+
+[node name="Toilet11" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.87253, 0.213541, -2.29042, 0.505829, 1.97137, 0, -2.31806, 0.26435, 1.95057, 19.0483, 1.55167, 23.8465 )
+shape = SubResource( 10 )
+
+[node name="Toilet12" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.26879, 0.144692, -2.68292, 0.505829, 1.97137, 0, -2.71529, 0.309649, 1.32168, 17.7228, 1.55167, 24.7126 )
+shape = SubResource( 10 )
+
+[node name="Toilet13" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -0.850806, 0.0970252, -2.8478, 0.505829, 1.97137, 0, -2.88215, 0.328679, 0.886267, 15.9955, 1.55167, 25.4 )
+shape = SubResource( 10 )
+
+[node name="Toilet14" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -0.286478, 0.0326697, -2.96151, 0.505829, 1.97137, 0, -2.99724, 0.341803, 0.298418, 14.2682, 1.55167, 25.7162 )
+shape = SubResource( 10 )
+
+[node name="Toilet15" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 2.74479, -0.313014, 1.04913, 0.505829, 1.97137, 0, 1.06178, -0.121085, -2.85919, 5.91789, 1.55167, 18.446 )
+shape = SubResource( 10 )
+
+[node name="Toilet16" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 2.22677, -0.25394, 1.93685, 0.505829, 1.97137, 0, 1.96021, -0.223541, -2.31959, 6.66527, 1.55167, 17.2044 )
+shape = SubResource( 10 )
+
+[node name="Toilet17" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 1.87253, -0.213541, 2.29042, 0.505829, 1.97137, 0, 2.31806, -0.26435, -1.95057, 7.87035, 1.55167, 15.9809 )
+shape = SubResource( 10 )
+
+[node name="Toilet18" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 1.26879, -0.144692, 2.68292, 0.505829, 1.97137, 0, 2.71529, -0.309649, -1.32168, 9.19592, 1.55167, 15.1147 )
+shape = SubResource( 10 )
+
+[node name="Toilet19" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.850806, -0.0970252, 2.8478, 0.505829, 1.97137, 0, 2.88215, -0.328679, -0.886267, 10.9232, 1.55167, 14.4273 )
+shape = SubResource( 10 )
+
+[node name="Toilet20" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.286478, -0.0326697, 2.96151, 0.505829, 1.97137, 0, 2.99724, -0.341803, -0.298418, 12.6505, 1.55167, 14.1111 )
+shape = SubResource( 10 )
+
+[node name="Toilet21" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.74479, 0.313014, -1.04913, 0.505829, 1.97137, 0, 1.06178, -0.121085, -2.85919, 21.0008, 1.55167, 18.446 )
+shape = SubResource( 10 )
+
+[node name="Toilet22" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.22677, 0.25394, -1.93685, 0.505829, 1.97137, 0, 1.96021, -0.223541, -2.31959, 20.2534, 1.55167, 17.2044 )
+shape = SubResource( 10 )
+
+[node name="Toilet23" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.87253, 0.213541, -2.29042, 0.505829, 1.97137, 0, 2.31806, -0.26435, -1.95057, 19.0483, 1.55167, 15.9809 )
+shape = SubResource( 10 )
+
+[node name="Toilet24" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.26879, 0.144692, -2.68292, 0.505829, 1.97137, 0, 2.71529, -0.309649, -1.32168, 17.7228, 1.55167, 15.1147 )
+shape = SubResource( 10 )
+
+[node name="Toilet25" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -0.850806, 0.0970252, -2.8478, 0.505829, 1.97137, 0, 2.88215, -0.328679, -0.886267, 15.9955, 1.55167, 14.4273 )
+shape = SubResource( 10 )
+
+[node name="Toilet26" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -0.286478, 0.0326697, -2.96151, 0.505829, 1.97137, 0, 2.99724, -0.341803, -0.298418, 14.2682, 1.55167, 14.1111 )
+shape = SubResource( 10 )
+
+[node name="Toilet27" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 3.37542, 0, 0, 0, 0.14163, 0, 0, 0, 3.55286, 4.6261, 8.94715, 20.0082 )
+shape = SubResource( 10 )
+
+[node name="Toilet28" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 3.15837, 4.50418e-09, 1.24609, 0, 0.141643, -1.18758e-09, -1.25277, 1.1939e-08, 3.30296, 4.90696, 8.94715, 21.6203 )
+shape = SubResource( 10 )
+
+[node name="Toilet29" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 2.56172, -2.31036e-09, 2.26438, 0, 0.141675, 3.29945e-10, -2.31227, -2.69112e-09, 2.63756, 5.75452, 8.94715, 23.064 )
+shape = SubResource( 10 )
+
+[node name="Toilet30" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 2.15392, 3.88011e-08, 2.65399, 0, 0.141693, -4.68521e-09, -2.73404, 3.21387e-08, 2.19828, 7.12114, 8.94715, 24.4868 )
+shape = SubResource( 10 )
+
+[node name="Toilet31" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 1.45923, 1.21648e-08, 3.0728, 0, 0.141717, -1.25363e-09, -3.20204, 5.82854e-09, 1.47228, 8.62441, 8.94715, 25.494 )
+shape = SubResource( 10 )
+
+[node name="Toilet32" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.978429, -6.11685e-09, 3.24394, 0, 0.141728, 5.93763e-10, -3.39858, -1.85149e-09, 0.981896, 10.5832, 8.94715, 26.2933 )
+shape = SubResource( 10 )
+
+[node name="Toilet33" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.329433, -2.65061e-09, 3.36019, 0, 0.141736, 2.47378e-10, -3.53409, -2.59774e-10, 0.329317, 12.542, 8.94715, 26.661 )
+shape = SubResource( 10 )
+
+[node name="Toilet34" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 3.37542, 0, -3.02916e-07, 0, -0.14163, 0, 3.02575e-07, 0, 3.55286, 22.2926, 8.94715, 20.0082 )
+shape = SubResource( 10 )
+
+[node name="Toilet35" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 3.15837, 4.50418e-09, -1.24609, 0, -0.141643, -1.18758e-09, 1.25277, -1.1939e-08, 3.30296, 22.0117, 8.94715, 21.6203 )
+shape = SubResource( 10 )
+
+[node name="Toilet36" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 2.56172, -2.31036e-09, -2.26438, 0, -0.141675, 3.29945e-10, 2.31227, 2.69112e-09, 2.63757, 21.1642, 8.94715, 23.064 )
+shape = SubResource( 10 )
+
+[node name="Toilet37" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 2.15392, 3.88011e-08, -2.65399, 0, -0.141693, -4.68521e-09, 2.73404, -3.21387e-08, 2.19828, 19.7976, 8.94715, 24.4868 )
+shape = SubResource( 10 )
+
+[node name="Toilet38" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 1.45923, 1.21648e-08, -3.0728, 0, -0.141717, -1.25363e-09, 3.20204, -5.82854e-09, 1.47228, 18.2943, 8.94715, 25.494 )
+shape = SubResource( 10 )
+
+[node name="Toilet39" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.97843, -6.11685e-09, -3.24394, 0, -0.141728, 5.93763e-10, 3.39857, 1.85149e-09, 0.981896, 16.3355, 8.94715, 26.2933 )
+shape = SubResource( 10 )
+
+[node name="Toilet40" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.329433, -2.65061e-09, -3.36019, 0, -0.141736, 2.47378e-10, 3.53409, 2.59774e-10, 0.329317, 14.3766, 8.94715, 26.661 )
+shape = SubResource( 10 )
+
+[node name="Toilet41" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -3.15837, -4.50418e-09, 1.24609, 0, -0.141643, -1.18758e-09, -1.25277, 1.1939e-08, -3.30296, 4.90696, 8.94715, 18.2071 )
+shape = SubResource( 10 )
+
+[node name="Toilet42" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.56172, 2.31036e-09, 2.26438, 0, -0.141675, 3.29945e-10, -2.31227, -2.69112e-09, -2.63756, 5.75452, 8.94715, 16.7633 )
+shape = SubResource( 10 )
+
+[node name="Toilet43" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.15392, -3.88011e-08, 2.65399, 0, -0.141693, -4.68521e-09, -2.73404, 3.21387e-08, -2.19828, 7.12114, 8.94715, 15.3405 )
+shape = SubResource( 10 )
+
+[node name="Toilet44" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.45923, -1.21648e-08, 3.0728, 0, -0.141717, -1.25363e-09, -3.20204, 5.82854e-09, -1.47228, 8.62441, 8.94715, 14.3334 )
+shape = SubResource( 10 )
+
+[node name="Toilet45" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -0.978429, 6.11685e-09, 3.24394, 0, -0.141728, 5.93763e-10, -3.39858, -1.85149e-09, -0.981896, 10.5832, 8.94715, 13.534 )
+shape = SubResource( 10 )
+
+[node name="Toilet46" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -0.329433, 2.65061e-09, 3.36019, 0, -0.141736, 2.47378e-10, -3.53409, -2.59774e-10, -0.329317, 12.542, 8.94715, 13.1664 )
+shape = SubResource( 10 )
+
+[node name="Toilet47" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -3.15837, -4.50418e-09, -1.24609, 0, 0.141643, -1.18758e-09, 1.25277, -1.1939e-08, -3.30296, 22.0117, 8.94715, 18.2071 )
+shape = SubResource( 10 )
+
+[node name="Toilet48" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.56172, 2.31036e-09, -2.26438, 0, 0.141675, 3.29945e-10, 2.31227, 2.69112e-09, -2.63757, 21.1642, 8.94715, 16.7633 )
+shape = SubResource( 10 )
+
+[node name="Toilet49" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.15392, -3.88011e-08, -2.65399, 0, 0.141693, -4.68521e-09, 2.73404, -3.21387e-08, -2.19828, 19.7976, 8.94715, 15.3405 )
+shape = SubResource( 10 )
+
+[node name="Toilet50" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.45923, -1.21648e-08, -3.0728, 0, 0.141717, -1.25363e-09, 3.20204, -5.82854e-09, -1.47228, 18.2943, 8.94715, 14.3334 )
+shape = SubResource( 10 )
+
+[node name="Toilet51" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -0.97843, 6.11685e-09, -3.24394, 0, 0.141728, 5.93763e-10, 3.39857, 1.85149e-09, -0.981896, 16.3355, 8.94715, 13.534 )
+shape = SubResource( 10 )
+
+[node name="Toilet52" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -0.329433, 2.65061e-09, -3.36019, 0, 0.141736, 2.47378e-10, 3.53409, 2.59774e-10, -0.329317, 14.3766, 8.94715, 13.1664 )
+shape = SubResource( 10 )
+
+[node name="Toilet53" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.76593e-07, 0.14163, 2.4822e-14, 4.41292, 4.31746e-09, -3.96024e-07, 3.02575e-07, 0, 3.55286, 23.5745, 19.5189, 19.8425 )
+shape = SubResource( 11 )
+
+[node name="Toilet54" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.76593e-07, 0.14163, 2.4822e-14, 3.95416, 3.86862e-09, -3.54853e-07, 2.91846e-07, 0, 3.42688, 27.0472, 13.5513, 19.8425 )
+shape = SubResource( 12 )
+
+[node name="Toilet55" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -4.00237e-08, 0.0204942, 3.5918e-15, 1.68663, 1.65014e-09, -1.51361e-07, 2.85304e-07, 0, 3.35006, 24.6383, 19.1516, 19.8425 )
+shape = SubResource( 12 )
+
+[node name="Toilet56" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -4.00237e-08, 0.0204942, 3.5918e-15, 1.68663, 1.65014e-09, -1.51361e-07, 2.85304e-07, 0, 3.35006, 29.1305, 19.1516, 19.8425 )
+shape = SubResource( 12 )
+
+[node name="Toilet57" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.02879e-07, -3.2303e-10, -1.20801, 1.68663, 1.65014e-09, -1.51361e-07, -6.78603e-08, 0.0347479, -2.48282e-07, 27.0052, 19.1516, 12.756 )
+shape = SubResource( 12 )
+
+[node name="Toilet61" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.02879e-07, -3.2303e-10, -1.20801, 1.68663, 1.65014e-09, -1.51361e-07, -6.78603e-08, 0.0347479, -2.48282e-07, 27.0052, 19.1516, 26.9158 )
+shape = SubResource( 12 )
+
+[node name="Toilet59" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 6.09968e-08, -4.37114e-08, 1, -1, -4.37114e-08, 6.09968e-08, 4.37114e-08, -1, -4.37114e-08, 27.0514, 18.9413, 11.1846 )
+shape = SubResource( 13 )
+
+[node name="Toilet60" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -0.491485, -8.9319e-08, 1.5519, -1.5519, -4.6352e-08, -0.491485, 4.37114e-08, -1, -4.37114e-08, 25.8579, 19.2873, 10.4885 )
+shape = SubResource( 14 )
+
+[node name="Toilet58" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.02879e-07, -3.2303e-10, -1.20801, 1.68663, 1.65014e-09, -1.51361e-07, -6.78603e-08, 0.0347479, -2.48282e-07, 27.0052, 18.5986, 26.9899 )
+shape = SubResource( 12 )
+
+[node name="Tap" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.0666191, 0, 0, 0, 0.420455, 0, 0, 0, 1.22461, 28.2019, 7.03901, -20.2717 )
+shape = SubResource( 9 )
+
+[node name="Tap2" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.241143, 0, 0, 0, -0.0216477, 0, 0, 0, 1.22461, 25.3439, 11.8603, -20.2717 )
+shape = SubResource( 9 )
+
+[node name="Tap3" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( 0.159568, -0.00214457, 0, -0.0748121, -0.0203179, 0, 0, 0, 1.22461, 25.9263, 14.0337, -20.2717 )
+shape = SubResource( 9 )
+
+[node name="Tap4" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -2.91201e-09, 0, 1.22461, 0, 0.420455, 0, -0.0666191, 0, -5.35294e-08, -18.654, 15.3913, -24.3593 )
+shape = SubResource( 9 )
+
+[node name="Tap5" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -1.05407e-08, 0, 1.22461, 0, -0.0216477, 0, -0.241143, 0, -5.35294e-08, -18.654, 20.2126, -21.5014 )
+shape = SubResource( 9 )
+
+[node name="Tap6" type="CollisionShape" parent="map/StaticBody"]
+transform = Transform( -6.97496e-09, 9.37422e-11, 1.22461, -0.0748121, -0.0203179, 0, -0.159568, 0.00214457, -5.35294e-08, -18.654, 22.386, -22.0837 )
+shape = SubResource( 9 )
+
+[node name="fish_zones" type="Spatial" parent="."]
+
+[node name="FishZone" type="Area" parent="fish_zones"]
+transform = Transform( 0.05, 0, 0, 0, 0.2, 0, 0, 0, 0.16, 27.0586, 19.6422, 19.9089 )
+monitoring = false
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="fish_zones/FishZone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.00309, 0 )
+shape = SubResource( 8 )
+
+[node name="FishZone2" type="Area" parent="fish_zones"]
+transform = Transform( 0.216442, 0, 0, 0, 0.2, 0, 0, 0, 0.16, -18.7313, 15.413, -16.9038 )
+monitoring = false
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="fish_zones/FishZone2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.00309, 0 )
+shape = SubResource( 8 )
+
+[node name="bounce_shrooms" type="Spatial" parent="."]
+
+[node name="mushroom_1" parent="bounce_shrooms" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7719, -4.94936, -9.50517 )
+
+[node name="mushroom_3" parent="bounce_shrooms" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5691, 13.5463, 28.6585 )
+
+[node name="mushroom_4" parent="bounce_shrooms" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1542, 8.28316, -28.5371 )
+
+[node name="points" type="Spatial" parent="."]
+
+[node name="shoreline" type="Spatial" parent="points"]
+
+[node name="shoreline_bug_spawn" type="Position3D" parent="points/shoreline" groups=["shoreline_point"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 0 )
+
+[node name="fish_spawns" type="Spatial" parent="points"]
+
+[node name="fish_spawn" type="Position3D" parent="points/fish_spawns" groups=["fish_spawn"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.633, 15.5796, -16.943 )
+
+[node name="ocean_spawns" type="Spatial" parent="points"]
+script = ExtResource( 10 )
+
+[node name="fish_spawn294" type="Position3D" parent="points/ocean_spawns" groups=["fish_spawn"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.30386, 13.4656, 8.12662, 19.8356 )
+
+[node name="lake_water" type="Spatial" parent="."]
+
+[node name="toilettop" parent="lake_water" instance=ExtResource( 12 )]
+transform = Transform( 0.1, 0, 0, 0, 1.15363, 0, 0, 0, 0.325, 27.1249, 14.1203, 19.849 )
+
+[node name="bath" parent="lake_water" instance=ExtResource( 12 )]
+transform = Transform( 0.806731, 0, 0, 0, 1.15363, 0, 0, 0, 0.395808, 11.1014, 0.288637, -20.0333 )
+
+[node name="sink" parent="lake_water" instance=ExtResource( 12 )]
+transform = Transform( 0.458999, 0, 0, 0, 1.15363, 0, 0, 0, 0.342085, -18.6116, 9.97999, -16.8776 )
+
+[node name="toilet3" parent="lake_water" instance=ExtResource( 12 )]
+transform = Transform( 0.142773, 0, 0, 0, 0.100959, 0, 0, 0, 0.325111, 13.5715, 7.60935, 19.815 )
+
+[node name="toilet6" parent="lake_water" instance=ExtResource( 12 )]
+transform = Transform( 0.436798, 0, 0, 0, 0.100959, 0, 0, 0, 0.119579, 13.5715, 7.60935, 19.815 )
+
+[node name="toilet5" parent="lake_water" instance=ExtResource( 12 )]
+transform = Transform( 0.0456219, 0, -0.340108, 0, 0.100959, 0, 0.0755744, 0, 0.193682, 13.5715, 7.60935, 19.815 )
+
+[node name="toilet7" parent="lake_water" instance=ExtResource( 12 )]
+transform = Transform( 0.0456219, 0, -0.340108, 0, 0.100959, 0, -0.0755744, 0, -0.193682, 13.5715, 7.60935, 19.815 )
+
+[node name="toilet4" parent="lake_water" instance=ExtResource( 12 )]
+transform = Transform( 0.0768651, 0, -0.20375, 0, 0.100959, 0, 0.0410445, 0, 0.28857, 13.5715, 7.60935, 19.815 )
+
+[node name="toilet8" parent="lake_water" instance=ExtResource( 12 )]
+transform = Transform( 0.0768651, 0, -0.20375, 0, 0.100959, 0, -0.0410445, 0, -0.28857, 13.5715, 7.60935, 19.815 )
+
+[node name="NPCs" type="Spatial" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.56565, -4.89746, -2.80429 )
+
+[node name="npc_bait" parent="NPCs" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30.1797, 1, 2.46998 )
+
+[node name="npc_bait2" parent="NPCs" instance=ExtResource( 13 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 30.9631, 22.4501, 24.3219 )
+
+[node name="npc_bait3" parent="NPCs" instance=ExtResource( 13 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -24.132, 14.1574, 24.3219 )
+
+[node name="npc_bait4" parent="NPCs" instance=ExtResource( 13 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18.6933, 15.3571, -22.7757 )
+
+[node name="npc_bait5" parent="NPCs" instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.0577, 26.714, -29.7131 )
+
+[node name="npc_general" parent="NPCs" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.572964, 0.913898, 5.79916 )
+
+[node name="npc_main" parent="NPCs" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.87491, 1.4299, 6.26125 )
+
+[node name="npc_vending" parent="NPCs" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93067, 1.72073, 7.16401 )
